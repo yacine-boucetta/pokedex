@@ -5,31 +5,25 @@ document.addEventListener("DOMContentLoaded", () => {
     let bouton = document.getElementById('button');
 
 
-    //-----------------------------gestions des type de pokemon
+    //-----------------------------gestions des type de pokemon--------------------------------------------
     fetch('pokemon.json')
         .then(response => response.json())
         .then((response) => {
-            let newArray2 = []
             let newArray = []
             let compteur = 0
             let bool = true
-
             for (let i = 0; i < 150; i++) {
                 let typePokemon = response[i].type[0]
                 bool = true
                 compteur = 0
-
                 for (let compteur = 0; compteur < 150; compteur++) {
-
                     if (response[i].type[0] == newArray[compteur]) {
                         bool = false
                         break
                     }
                 }
                 if (bool) {
-
                     newArray.push(typePokemon.toString())
-
                 }
             }
             for (let j = 0; j < newArray.length; j++) {
@@ -49,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </tr>`;
 
                 for (let row of response) {
-                    //----------------------------recherche par id -------------------------------------------------
+//----------------------------recherche par id -------------------------------------------------
                     if (row.id == idPoke.value) {
                         tab += `<tr> 
                     <td>${row.id} </td>
